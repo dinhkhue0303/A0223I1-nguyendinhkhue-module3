@@ -4,13 +4,13 @@ use quanlibanhang;
 create table customer(
 cID int primary key auto_increment,
 cName varchar(50),
-cAge Date
+cAge int
 );
 
 create table orderr(
 oID int primary key auto_increment,
 cID int,
-oDate datetime,
+oDate date,
 oTTPrice double,
 foreign key(cID) references customer(cID)
 );
