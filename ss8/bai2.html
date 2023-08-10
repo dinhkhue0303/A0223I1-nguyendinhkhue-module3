@@ -2,198 +2,563 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Facebook</title>
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <style>
-        .container {
-            font-family: "Times New Roman";
+        .main{
+            width: 100%;
+            height: 4000px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .head1{
+            width: 100%;
+            height: 57px;
+        }
+        .head1 li{
+            display: inline;
+        }
+        .head1 li a{
+            text-decoration: none;
+            color: black;
+        }
+        .head1 .surface{
+            margin-left: 20px;
             font-size: 20px;
-            width: 1500px;
-            height: 2000px;
-            background-color: #777777;
         }
-
-        .header{
-            left:0;
-            background-color: #cccccc;
-            position: fixed;
-            height: 50px;
-            width: 100%;
-            top:0;
+        .head1 .micro{
+            margin-left: 52px;
+            font-size: 20px;
         }
-        .menu{
-            height: 50px;
-            padding: 0;
-            margin: 0;
+        .head1 .li1{
+            margin-left: 20px;
+            font-size: 13px;
         }
-        .menu ul , .menu li {
-            padding: 0;
-            margin: 0;
-            list-style: none;
+        .head1 li a:hover{
+            text-decoration: underline;
         }
-        .menu li{
-            float: left;
+        .head1 .all{
+            margin-left: 180px;
+        }
+        .head1 .li2{
+            margin-left: 20px;
+        }
+        .head1 li{
             line-height: 50px;
         }
-        .menu .search{
-            margin-right: 170px;
+        .head2{
+            width: 100%;
+            height: 40px;
+        }
+        .switch {
             position: relative;
+            display: inline-block;
+            width: 30px;
+            height: 17px;
         }
-        .menu li a{
-            width: 110px;
-            height: 50px;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            line-height: 50px;
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
         }
-        .menu li a:hover{
-            background-color: #777777 ;
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
         }
-        .menu .trochoi{
-            margin-right: 100px;
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 10px;
+            width: 10px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
         }
-        .left{
-            left:0;
-            width: 300px;
-            background-color: #cccccc;
-            top:50px;
-            height: 1500px;
-            float: left;
-            position: fixed;
+
+        input:checked + .slider {
+            background-color: #2196F3;
         }
-        .left li{
-            list-style: none;
-            display: block;
-            width: 300px;
-            height: 100px;
-            text-align: center;
-            line-height: 100px;
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(13px);
         }
-        .left li a{
-            text-decoration: none;
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
         }
-        .left li:hover{
-            background-color: #777777;
+
+        .slider.round:before {
+            border-radius: 50%;
         }
-        .content{
-            background-color: #cccccc;
-            width: 550px;
-            min-height: 400px;
-            float: left;
-            margin-top: 40px;
-            margin-left: 500px;
+        .head2 {
+            background-color: #B0ACB5;
         }
-        .content img{
+        .head2 ul li{
+            display: inline;
+            margin-left: 20px;
+            line-height: 40px;
+        }
+        .head2 .Animation{
+            margin-left: 1200px;
+        }
+        .head3{
             width: 100%;
+            height: 57px;
+            background-color: blue;
         }
-        .content li{
-            width: 150px;
-            height: 50px;
-            display: block;
-            float: left;
-            text-align: center;
-            line-height: 50px;
-        }
-        .content li a{
-            text-decoration: none;
-        }
-        .content li:hover{
-            background-color: #777777;
-        }
-        .content hr{
-            margin-left: 0px;
-
-        }
-
-        .right{
-            width: 300px;
-            height: 1500px;
-            background-color: #cccccc;
-            top:50px;
-            right:0;
-            float: right;
-            position: fixed;
-        }
-        .right li{
+        .head3 li{
             list-style: none;
-            display: block;
-            width: 300px;
-            height: 100px;
-            text-align: center;
-            line-height: 100px;
         }
-        .right li a{
+        .head3 li a{
+            text-decoration: none;
+            color: white;
+            margin-left: 500px;
+            line-height: 60px;
+        }
+        .head3 li a:hover{
+            text-decoration: underline;
+        }
+        .content1{
+            width: 100%;
+            height: 900px;
+        }
+        .content1 .content1-body{
+            margin-left: 70px;
+            margin-top: 200px;
+            width: 600px;
+            height: 350px;
+            font-size: 100px;
+            line-height: 105px;
+        }
+        .content1 .content1-body1{
+            margin-left: 70px;
+            width: 600px;
+            height: 200px;
+            font-size: 25px;
+        }
+        .content1 .content1-body2{
+            width: 500px;
+            float: left;
+        }
+        .content1 .content1-body2 li{
+            display: inline;
+        }
+        .content1 .content1-body2 li a{
+            text-decoration: none;
+            color: black;
+            margin-left: 35px;
+        }
+        .content1 .content1-body2 li a:hover{
+            text-decoration: underline;
+        }
+
+        .footer1{
+            width: 100%;
+            height: 130px;
+        }
+        .footer1 li{
+            display: inline;
+        }
+        .footer1 li a{
+            text-decoration: none;
+            margin-left: 35px;
+            line-height: 120px;
+        }
+        .footer1 li a:hover{
+            text-decoration: underline;
+        }
+        .head4{
+            width: 100%;
+            height: 90px;
+            font-size: 50px;
+        }
+        .head4 h{
+            margin-left: 55px;
+        }
+        .content2{
+            width: 100%;
+            height: 800px;
+        }
+        .content2 li{
+            display: inline;
+            margin-left: 30px;
+        }
+        .content2 li a{
             text-decoration: none;
         }
-        .right li:hover{
-            background-color: #777777;
+        .content2 li a:hover{
+            text-decoration: underline;
         }
-        .right p{
-            text-align: center;
+        .content2 .content2-body{
+            border: 1px solid black;
+            float: left;
+            width: 651px;
+            height: 700px;
+            margin-left: 50px;
+        }
+        
+        .content2 .content2-body1{
+            border: 1px solid black;
+            float: left;
+            width: 650px;
+            height: 700px;
+            margin-left: 100px;
+        }
+        .content2 .content2-body2{
+            border: 1px solid black;
+            float: left;
+            width: 280px;
+            height: 310px;
+        }
+        .content2 .content2-body3{
+            border: 1px solid black;
+            float: right;
+            width: 280px;
+            height: 310px;
+        }
+        .content2 .content2-body4{
+            border: 1px solid black;
+            float: left;
+            width: 280px;
+            height: 350px;
+            margin-top: 40px;
+        }
+        .content2 .content2-body5{
+            border: 1px solid black;
+            float: right;
+            width: 280px;
+            height: 350px;
+            margin-top: 40px;
+        }
+        .content3{
+            width: 100%;
+            height: 800px;
+        }
+        .content3 li{
+            display: inline;
+            margin-left: 30px;
+        }
+        .content3 li a{
+            text-decoration: none;
+        }
+        .content3 li a:hover{
+            text-decoration: underline;
+        }
+        .content3 .content3-body{
+            border: 1px solid black;
+            float: left;
+            width: 651px;
+            height: 700px;
+            margin-left: 100px;
+        }
+        .content3 .content3-body1{
+            border: 1px solid black;
+            float: left;
+            width: 650px;
+            height: 700px;
+            margin-left: 50px;
+        }
+        .content3 .content3-body2{
+            border: 1px solid black;
+            float: left;
+            width: 280px;
+            height: 310px;
+        }
+        .content3 .content3-body3{
+            border: 1px solid black;
+            float: right;
+            width: 280px;
+            height: 310px;
+        }
+        .content3 .content3-body4{
+            border: 1px solid black;
+            float: left;
+            width: 280px;
+            height: 350px;
+            margin-top: 40px;
+        }
+        .content3 .content3-body5{
+            border: 1px solid black;
+            float: right;
+            width: 280px;
+            height: 350px;
+            margin-top: 40px;
+        }
+        .content4{
+            width: 1400px;
+            height: 130px;
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+        .content4-body{
+            float: left;
+        }
+        .content4-body1{
+            float: left;
+            width: 600px;
+            height: 100px;
+            font-size: 20px;
+            margin-left: 150px;
+            margin-top: 20px;
+            line-height: 30px;
+
+        }
+        .content4-body2{
+            float: left;
+            width: 200px;
+            height: 100px;
+            margin-left: 100px;
+            margin-top: 20px;
+        }
+        .content4-body2 p{
+            margin-top: 28px;
+            margin-left: 20px;
+        }
+        .content4-body2 p a{
+            text-decoration: none;
+        }
+        .content4-body2 p a:hover{
+            text-decoration: underline;
+        }
+        .content5{
+            width: 100%;
+            height: 500px;
+            margin-top: 50px;
+        }
+        .content5-1{
+            width: 45%;
+            height: 500px;
+            margin-left: 50px;
+            float: left;
+        }
+        .content5-1-1{
+            width: 100%;
+            height: 50px;
+            margin-top: 50px;
+        }
+        .content5-1-2{
+            width: 100%;
+            height: 70%;
+            border: 1px solid black;
+        }
+        .content5-1-2 .anh{
+            width: 350px;
+            height: 100%;
+
+            float: left;
+        }
+        .content5-1-2 .chu{
+            width: 180px;
+            height: 50px;
+            float: left;
+            margin-top: 130px;
+            margin-left: 80px;
+            font-size: 20px;
+        }
+        .content5-1-2 .chu a{
+            text-decoration: none;
+        }
+        .content5-2{
+            width: 45%;
+            height: 500px;
+            margin-left: 40px;
+            float: left;
+        }
+
+        .content5-2-1{
+            width: 100%;
+            height: 50px;
+            margin-top: 50px;
+        }
+        .content5-2-2{
+            width: 100%;
+            height: 70%;
+            border: 1px solid black;
+        }
+        .content5-2-2 .anh{
+            width: 350px;
+            height: 100%;
+            float: left;
+        }
+        .content5-2-2 .chu{
+            width: 180px;
+            height: 50px;
+            float: left;
+            margin-top: 130px;
+            margin-left: 80px;
+            font-size: 20px;
+        }
+        .content5-2-2 .chu a{
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-<div>
-    <div class="container">
-        <div class="header">
-            <div class="menu">
+    <div class="main">
+        <div class="head1">
+            <ul>
+                <li class="micro"><a href="#">Microsoft</a></li>
+                <li class="li1">|</li>
+                <li class="surface"><a href="#">Surface</a></li>
+                <li class="li1"><a href="#">comfuters</a></li>
+                <li class="li1"><a href="#">computers For Business</a></li>
+                <li class="li1"><a href="#">Accessories</a></li>
+                <li class="li1"><a href="#">Shop now</a></li>
+                <li class="li1"><a href="#">Support</a></li>
+                <li class="li1"><a href="#">Shop Deals</a></li>
+                <li class="all"><a href="#">All Microsoft</a></li>
+                <li class="li2"><a href="#">Search</a></li>
+                <li class="li2"><a href="#">Cart</a></li>
+                <li class="li2"><a href="#">Sign in</a></li>
+            </ul>
+        </div>
+        <div class="head2">
+            <ul>
+                <li class="Animation">Animation</li>
+                <li>|</li>
+                <li><label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round"></span>
+                </label></li>
+                <li>on</li>
+            </ul>
+        </div>
+        <div class="head3">
+            <ul>
+                <li><a href="#">Save big on Surface back-to-school deals. Shop deals</a></li>
+            </ul>
+        </div>
+        <div class="content1">
+            <div class="content1-body">Laptops designed by Microsoft</div>
+            <div class="content1-body1"><b>Save on back-to-school essentials now. Portability, power, flexibility, speed—whatever you’re after, there’s a Surface to match.</b>
+            </div>
+            <div class="content1-body2">
                 <ul>
-                    <li>Facebook</li>
-                    <li><input type="text" placeholder="tìm kiếm trên facebook" class="search"></li>
-                    <li><a href="">home</a></li>
-                    <li><a href="">video</a></li>
-                    <li><a href="">marketplace</a></li>
-                    <li><a href="">nhóm</a></li>
-                    <li class="trochoi"><a href="">trò chơi</a></li>
-                    <li><a href="">nemu</a></li>
-                    <li><a href="">messenger</a></li>
-                    <li><a href="">thông báo</a></li>
-                    <li><a href="">tài khoản</a></li>
+                    <li><a href="#">Shop deals</a></li>
+                    <li><a href="#">Explore all</a></li>
+                    <li><a href="#">Surface Laptop 5</a></li>
                 </ul>
             </div>
         </div>
-        <div class="left">
-            <li><a href="">bạn bè</a></li>
-            <li><a href="">kỉ niệm</a></li>
-            <li><a href="">đã lưu</a></li>
-            <li><a href="">bảng feed</a></li>
-            <li><a href="">nhóm</a></li>
-            <li><a href="">video</a></li>
-        </div>
-        <div class="content">
-            <img src="https://cafefcdn.com/thumb_w/640/203337114487263232/2022/3/3/photo1646280815645-1646280816151764748403.jpg" alt="anh1">
-            <hr>
+        <div class="footer1">
             <ul>
-                <li><a href="">Like</a></li>
-                <li><a href="">Comment</a></li>
-                <li><a href="">Share</a></li>
-            </ul>
-            <img src="https://cafefcdn.com/thumb_w/640/203337114487263232/2022/3/3/photo1646280815645-1646280816151764748403.jpg" alt="anh2">
-            <hr>
-            <ul>
-                <li><a href="">Like</a></li>
-                <li><a href="">Comment</a></li>
-                <li><a href="">Share</a></li>
-            </ul>
-            <img src="https://cafefcdn.com/thumb_w/640/203337114487263232/2022/3/3/photo1646280815645-1646280816151764748403.jpg" alt="anh3">
-            <hr>
-            <ul>
-                <li><a href="">Like</a></li>
-                <li><a href="">Comment</a></li>
-                <li><a href="">Share</a></li>
+                <li><a href="#">Compare devices</a></li>
+                <li><a href="#">help me choose</a></li>
+                <li><a href="#">Surface deals</a></li>
+                <li><a href="#">Why surface</a></li>
+                <li><a href="#">Surface for Education</a></li>
+                <li><a href="#">Surface for Business</a></li>
             </ul>
         </div>
-        <div class="right">
-            <p>người liên hệ</p>
-            <li><a href="">mèo</a></li>
-            <li><a href="">chó</a></li>
-            <li><a href="">gấu</a></li>
-            <li><a href="">heo</a></li>
-            <li><a href="">bò</a></li>
-            <li><a href="">zịt</a></li>
+        <div class="head4">
+            <h>For all the ways you create</h>
+        </div>
+        <div class="content2">
+            <div>
+                <ul>
+                    <li style="font-size: 30px">2-in-1 PCs</li>
+                    <li style="font-size: 25px"><a href="#">See all Surface 2-in-1 PCs</a></li>
+                </ul>
+            </div>
+            <div class="content2-body">
+                <video src="https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/MSFT_Surface_Home_Surface-Pro-9_Platinum_360-video" width="650px" height="700px"></video>
+            </div>
+            <div class="content2-body1">
+                <div class="content2-body2">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-View-Surface-Pro-9-Sapphire-Surface-Type-Cover-attached?fmt=png-alpha&wid=430&hei=350&fit=crop" width="280px" height="310px">
+                </div>
+                <div class="content2-body3">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Surface-Pro-8-shown-three-quarter-kickstand-extended-type-cover?fmt=png-alpha&wid=430&hei=350&fit=crop" width="280px" height="310px" >
+                </div>
+                <div class="content2-body4">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Surface-Pro-7-plues-three-quarter-view-kickstand-extended-type-cover?fmt=png-alpha&wid=430&hei=350&fit=crop" width="280px" height="310px">
+                </div>
+                <div class="content2-body5">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Surface-Go-3--three-quarter-kickstand-extended-type-cover?fmt=png-alpha&wid=430&hei=350&fit=crop" width="280px" height="310px">
+                </div>
+            </div>
+        </div>
+        <div class="content3">
+            <div>
+                <ul>
+                    <li style="font-size: 30px">Laptops</li>
+                    <li style="font-size: 25px"><a href="#">Explore all Surface Laptops</a></li>
+                </ul>
+            </div>
+            <div class="content3-body1">
+                <div class="content3-body2">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT_Surface-Laptop-5_Home_DeviceShowcase_Poster?fmt=png-alpha&wid=430&hei=350&fit=crop" width="280px" height="310px">
+                </div>
+                <div class="content3-body3">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Surface-Laptop-5_Home_DeviceShowcase_Platinum-Poster?fmt=png-alpha&wid=430&hei=350&fit=crop" width="280px" height="310px" >
+                </div>
+                <div class="content3-body4">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Surface_Laptop-Studio_Home_DeviceShowcase_Poster?fmt=png-alpha&wid=430&hei=350&fit=crop" width="280px" height="310px">
+                </div>
+                <div class="content3-body5">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Surface_Laptop-Go-2_Home_DeviceShowcase_Poster?fmt=png-alpha&wid=430&hei=350&fit=crop" width="280px" height="310px">
+                </div>
+            </div>
+            <div class="content3-body">
+                <video src="https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/MSFT_Surface_Home_Surface-Laptop-5-13-inch_Sage_360-video" width="650px" height="700px"></video>
+            </div>
+        </div>
+        <div class="content4">
+            <div class="content4-body">
+                <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE59yUp?ver=f511">
+            </div>
+            <div class="content4-body1">
+                Save up to $300 on Surface Pro 9
+
+                The tablet flexibility you want and the laptop performance you need—all in one ultra-portable device.
+            </div>
+            <div class="content4-body2">
+                <p><a href="#">Buy now</a></p>
+            </div>
+        </div>
+        <div class="content5">
+            <div class="content5-1">
+                <div class="content5-1-1">
+                    <p style="font-size: 30px">All-in-One</p>
+                </div>
+                <div class="content5-1-2">
+                    <div class="anh">
+                        <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Surface-Studio-2-Plus-_Home_DeviceShowcase-poster?fmt=png-alpha&wid=430&hei=350&fit=crop" width="350px" height="350px">
+                    </div>
+                    <div class="chu">
+                        <p><a href="#">Surface Studio 2+</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="content5-2">
+                <div class="content5-2-1">
+                    <p style="font-size: 30px">Need help deciding?</p>
+                </div>
+                <div class="content5-2-2">
+                    <div class="anh">
+                        <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-family-image-Home-DeviceShowcase-poster-2?fmt=png-alpha&wid=430&hei=350&fit=crop">
+                    </div>
+                    <div class="chu">
+                        <p><a href="#">Let us help you choose a Surface</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 </body>
 </html>
