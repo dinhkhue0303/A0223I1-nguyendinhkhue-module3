@@ -392,5 +392,97 @@ where dv.ma_dich_vu in(
     where year(hd.ngay_lam_hop_dong) = 2021 and (month(hd.ngay_lam_hop_dong) = 1 or month(hd.ngay_lam_hop_dong) = 2 or month(hd.ngay_lam_hop_dong) = 3
     or month(hd.ngay_lam_hop_dong) = 4 or month(hd.ngay_lam_hop_dong) = 5 or month(hd.ngay_lam_hop_dong) = 6)
 )
-group by dv.ma_dich_vu, hd.ma_hop_dong
+group by dv.ma_dich_vu, hd.ma_hop_dong;
+
+-- 13
+select dk.ma_dich_vu_di_kem, dk.ten_dich_vu_di_kem, dk.gia, dk.don_vi, dk.trang_thai, sum(ct.so_luong) as soluong
+from hop_dong_chi_tiet ct
+join dich_vu_di_kem dk
+on ct.ma_dich_vu_di_kem = dk.ma_dich_vu_di_kem
+group by dk.ma_dich_vu_di_kem
+having soluong = (
+	select sum(ct.so_luong) as soluong
+	from hop_dong_chi_tiet ct
+	join dich_vu_di_kem dk
+	on ct.ma_dich_vu_di_kem = dk.ma_dich_vu_di_kem
+	group by dk.ma_dich_vu_di_kem
+    order by soluong desc
+    limit 1
+);
+
+-- 14
+select any_value(hd.ma_hop_dong), any_value(ldv.ten_loai_dich_vu), dk.ten_dich_vu_di_kem, count(*) as "so lan su dung"
+from hop_dong hd
+join dich_vu dv
+on hd.ma_dich_vu = dv.ma_dich_vu
+join loai_dich_vu ldv
+on ldv.ma_loai_dich_vu = dv.ma_loai_dich_vu
+join  hop_dong_chi_tiet ct
+on hd.ma_hop_dong = ct.ma_hop_dong
+join dich_vu_di_kem dk
+on dk.ma_dich_vu_di_kem = ct.ma_dich_vu_di_kem
+group by dk.ma_dich_vu_di_kem
+having count(*) = 1;
+
+-- 15
+select nv.ma_nhan_vien, nv.ho_ten, td.ten_trinh_do, bp.ten_bo_phan, nv.so_dien_thoai, nv.dia_chi
+from nhan_vien nv
+join trinh_do td
+on nv.ma_trinh_do = td.ma_trinh_do
+join bo_phan bp
+on bp.ma_bo_phan = nv.ma_bo_phan
+join hop_dong hd
+on hd.ma_nhan_vien = nv.ma_nhan_vien
+group by nv.ma_nhan_vien
+having count(*) <=3;
+
+
+-- 16
+select * from INFORMATION_SCHEMA.KEY_COLUMN_USAGE WHERE REFERENCED_TABLE_SCHEMA ='quanlynghiduongfurama' AND REFERENCED_TABLE_NAME = 'nhan_vien' ;
+
+-- 17
+select kh.ho_ten, ifnull(dv.chi_phi_thue + sum((ct.so_luong * dk.gia)), 0)  as tong_tien 
+from loai_khach lk
+join khach_hang kh
+on lk.ma_loai_khach = kh.ma_loai_khach
+join hop_dong hd
+on hd.ma_khach_hang = kh.ma_khach_hang
+join dich_vu dv
+on dv.ma_dich_vu = hd.ma_dich_vu
+join hop_dong_chi_tiet ct
+on ct.ma_hop_dong = hd.ma_hop_dong
+join dich_vu_di_kem dk
+on dk.ma_dich_vu_di_kem = ct.ma_dich_vu_di_kem
+where lk.ten_loai_khach = "Platinium" and year(hd.ngay_lam_hop_dong) = 2021
+group by kh.ma_khach_hang, hd.ma_hop_dong
+having tong_tien > 10000000;
+
+-- 18
+select *
+from khach_hang kh
+join hop_dong hd
+on kh.ma_khach_hang = hd.ma_khach_hang
+where year(hd.ngay_lam_hop_dong) < 2021;
+
+-- 19
+select ct.ma_dich_vu_di_kem, sum(ct.so_luong) as so_lan
+from hop_dong hd
+join hop_dong_chi_tiet ct
+on hd.ma_hop_dong = ct.ma_hop_dong
+join dich_vu_di_kem dk
+on dk.ma_dich_vu_di_kem = ct.ma_dich_vu_di_kem
+where year(hd.ngay_lam_hop_dong) = 2020
+group by ct.ma_dich_vu_di_kem
+having so_lan > 10;
+
+-- 20
+select kh.ma_khach_hang as id, kh.ho_ten, kh.email, kh.so_dien_thoai, kh.ngay_sinh, kh.dia_chi
+from khach_hang kh
+union
+select nv.ma_nhan_vien as id, nv.ho_ten, nv.email, nv.so_dien_thoai, nv.ngay_sinh, nv.dia_chi 
+from nhan_vien nv
+
+
+
+
 
